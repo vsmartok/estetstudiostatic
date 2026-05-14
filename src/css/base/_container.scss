@@ -1,0 +1,10 @@
+@use "../abstracts/variables" as *;
+
+[class*="__container"] {
+  width: 100%;
+  max-width: $container-max-width;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: calc($container-padding-x * 0.5);
+  padding-left: calc($container-padding-x * 0.5);
+}

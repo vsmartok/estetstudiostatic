@@ -1,19 +1,5 @@
-@font-face {
-  font-family: "Open Sans";
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-  src: url("../fonts/OpenSans-Regular.woff2") format("woff2"), url("../fonts/OpenSans-Regular.woff") format("woff");
-}
-@media (prefers-reduced-motion: no-preference) {
-  :root {
-    scroll-behavior: smooth;
-  }
-}
-
 * {
   margin: 0;
-  padding: 0;
   border: 0;
 }
 *, *::before, *::after {
@@ -23,96 +9,20 @@
 html {
   height: 100%;
   box-sizing: border-box;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
   height: 100%;
-  font-family: "Open Sans", sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
-  font-style: normal;
-  font-optical-sizing: auto;
-  line-height: 1.5;
-  color: var(--body-color, #000);
-  background-color: var(--body-bg, #fff);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-figure {
-  font-size: 100%;
-  font-weight: inherit;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Open Sans", sans-serif;
-}
-
-a, a:link, a:visited {
-  text-decoration: none;
-  color: var(--link-color, inherit);
-}
-a:hover {
-  text-decoration: none;
-  color: var(--link-hover-color, inherit);
-}
-a:focus {
-  outline: 0;
-}
-
-ul,
-ol {
-  list-style: none;
-}
-
-address {
-  font-style: normal;
-  line-height: inherit;
 }
 
 img,
-picture,
-video,
-canvas,
 svg {
-  display: block;
-  max-width: 100%;
-  height: auto;
+  vertical-align: middle;
 }
 
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
   caption-side: bottom;
-}
-
-caption {
-  color: inherit;
-  text-align: left;
-}
-
-td:not([align]),
-th:not([align]) {
-  text-align: inherit;
-  text-align: -webkit-match-parent;
+  border-collapse: collapse;
 }
 
 label {
@@ -189,5 +99,62 @@ progress {
 
 [hidden] {
   display: none !important;
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url("../fonts/Roboto-Light.woff2") format("woff2"), url("../fonts/Roboto-Light.woff") format("woff");
+}
+@font-face {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("../fonts/Roboto-Regular.woff2") format("woff2"), url("../fonts/Roboto-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Roboto";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url("../fonts/Roboto-SemiBold.woff2") format("woff2"), url("../fonts/Roboto-SemiBold.woff") format("woff");
+}
+body {
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  font-style: normal;
+  font-optical-sizing: auto;
+  line-height: 1.5;
+  color: var(--body-color);
+  background-color: var(--body-bg);
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  overflow: hidden;
+}
+@supports (overflow: clip) {
+  .page {
+    overflow: clip;
+  }
+}
+.page > .main {
+  flex: 1 1 auto;
+}
+
+[class*=__container] {
+  width: 100%;
+  max-width: 1340px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 /*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,13 @@
+@use "../abstracts/variables" as *;
+
+body {
+  height: 100%;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-base;
+  font-style: $font-style-base;
+  font-optical-sizing: $font-optical-sizing;
+  line-height: $line-height-base;
+  color: var(--body-color);
+  background-color: var(--body-bg);
+}
