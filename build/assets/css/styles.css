@@ -181,7 +181,7 @@ body {
 
 .button {
   --button-width: auto;
-  --button-height: 30px;
+  --button-height: 34px;
   --button-padding-x: 25px;
   --button-color: inherit;
   --button-bg: transparent;
@@ -192,8 +192,8 @@ body {
   --button-hover-bg: transparent;
   --button-hover-border: transparent;
   --button-hover-icon-color: var(--button-hover-color);
-  --button-icon-width: 15px;
-  --button-icon-height: 15px;
+  --button-icon-width: 17px;
+  --button-icon-height: 17px;
   --button-icon-color: var(--button-color);
   position: relative;
   width: var(--button-width);
