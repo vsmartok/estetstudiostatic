@@ -1,0 +1,11 @@
+.logo {
+  --logo-width: 100%;
+
+  display: inline-block;
+  width: var(--logo-width);
+  // .logo__image
+  &__image {
+    width: 100%;
+    height: auto;
+  }
+}

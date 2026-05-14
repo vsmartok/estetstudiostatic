@@ -9,3 +9,13 @@ $font-weight-base: 300;
 $font-style-base: normal;
 $font-optical-sizing: auto;
 $line-height-base: 1.5;
+
+// Breakpoints
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);

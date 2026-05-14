@@ -9,3 +9,15 @@
       url("../fonts/#{$file-name}.woff") format("woff");
   }
 }
+
+@mixin breakpoint-up($name, $breakpoints: $breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}

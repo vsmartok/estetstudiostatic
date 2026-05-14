@@ -1,0 +1,182 @@
+.button {
+  --button-width: auto;
+  //   --button-height: 44px;
+  --button-height: 30px;
+  --button-padding-x: 25px;
+
+  --button-color: inherit;
+  --button-bg: transparent;
+  --button-border: var(--button-bg);
+  --button-radius: var(--button-height);
+
+  --button-transition-duration: 0.5s;
+
+  --button-hover-color: inherit;
+  --button-hover-bg: transparent;
+  --button-hover-border: transparent;
+  --button-hover-icon-color: var(--button-hover-color);
+
+  //   --button-icon-width: 22px;
+  //   --button-icon-height: 22px;
+  --button-icon-width: 15px;
+  --button-icon-height: 15px;
+  --button-icon-color: var(--button-color);
+
+  position: relative;
+  width: var(--button-width);
+  min-height: var(--button-height);
+  padding-inline: var(--button-padding-x);
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.2;
+
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  white-space: nowrap;
+
+  color: var(--button-color);
+  background-color: var(--button-bg);
+  border: 1px solid var(--button-border);
+  border-radius: var(--button-radius);
+
+  cursor: pointer;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+
+  transition:
+    color var(--button-transition-duration) ease 0s,
+    background-color var(--button-transition-duration) ease 0s,
+    border-color var(--button-transition-duration) ease 0s,
+    box-shadow var(--button-transition-duration) ease 0s;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--button-hover-color);
+    background-color: var(--button-hover-bg);
+    border-color: var(--button-hover-border);
+  }
+
+  &:focus-visible {
+    outline: 0;
+    box-shadow: 0 0 0 4px rgba(198, 174, 113, 0.35);
+  }
+
+  &:disabled,
+  &.button--disabled,
+  &[aria-disabled="true"] {
+    opacity: 0.65;
+    pointer-events: none;
+    box-shadow: none;
+  }
+
+  // .button__icon
+  &__icon {
+    width: var(--button-icon-width);
+    height: var(--button-icon-height);
+    fill: var(--button-icon-color);
+    transition: fill var(--button-transition-duration) ease 0s;
+
+    .button:hover &,
+    .button:focus-visible & {
+      fill: var(--button-hover-icon-color);
+    }
+  }
+
+  // .button__bar
+  &__bar {
+    position: relative;
+    display: block;
+    margin-left: 4px;
+    // width: 16px;
+    width: 12px;
+    height: 1px;
+    background-color: var(--button-icon-color);
+
+    transition:
+      background-color 0.25s ease 0s,
+      transform 0.25s ease 0s;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 16px;
+      //   width: 20px;
+      height: 1px;
+      right: 0;
+      background-color: var(--button-icon-color);
+      border-radius: 2px;
+      transition:
+        background-color 0.25s ease 0s,
+        transform 0.25s ease 0s,
+        top 0.25s ease 0s;
+    }
+
+    &::before {
+      top: -6px;
+      //   top: -6px;
+    }
+
+    &::after {
+      top: 6px;
+      //   top: 6px;
+    }
+
+    .button:hover &,
+    .button:focus-visible & {
+      &,
+      &::before,
+      &::after {
+        background-color: var(--button-hover-icon-color);
+      }
+    }
+
+    .button--active & {
+      background-color: transparent;
+    }
+
+    .button--active &::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    .button--active &::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+  }
+
+  // .button--primary
+  &--primary {
+    --button-color: var(--primary-contrast-color);
+    --button-bg: var(--primary-color);
+    --button-border: var(--primary-color);
+    --button-hover-color: var(--primary-hover-contrast-color);
+    --button-hover-bg: var(--primary-hover-color);
+    --button-hover-border: var(--primary-hover-color);
+  }
+
+  // .button--secondary
+  &--secondary {
+    --button-color: var(--secondary-contrast-color);
+    --button-bg: var(--secondary-color);
+    --button-border: var(--secondary-color);
+    --button-hover-color: var(--secondary-hover-contrast-color);
+    --button-hover-bg: var(--secondary-hover-color);
+    --button-hover-border: var(--secondary-hover-color);
+  }
+
+  // .button--icon
+  &--icon {
+    --button-width: var(--button-height);
+    --button-padding-x: 0;
+    --button-radius: 50%;
+  }
+}

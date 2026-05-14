@@ -1,5 +1,12 @@
+@use "base/root";
 @use "base/reset";
 @use "base/fonts";
 @use "base/base";
 @use "base/page";
 @use "base/container";
+
+@use "components/buttons";
+@use "components/logo";
+
+@use "parts/header";
+@use "parts/footer";
