@@ -1,0 +1,37 @@
+// Colors
+$black: #000;
+$white: #fff;
+$blue: #0d6efd;
+
+// Body
+$body-color: $black;
+$body-bg: $white;
+
+// Typography
+$font-family-base: "Open Sans", sans-serif;
+$font-size-base: 1rem;
+$font-weight-base: 400;
+$font-style-base: normal;
+$font-optical-sizing: auto;
+$line-height-base: 1.5;
+
+// Headings
+$headings-margin-bottom: null;
+$headings-font-family: $font-family-base;
+$headings-font-style: null;
+$headings-font-weight: null;
+$headings-line-height: null;
+$headings-color: null;
+
+// Link
+$link-color: $blue;
+$link-decoration: none;
+$link-shade-percentage: 20%;
+$link-hover-color: shift-color($link-color, $link-shade-percentage);
+$link-hover-decoration: none;
+
+// Border
+$border-width: 1px;
+$border-style: solid;
+$border-color: #dee2e6;
+$border-radius: 0.375rem;
