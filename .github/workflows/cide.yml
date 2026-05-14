@@ -29,4 +29,6 @@ jobs:
           echo "${{ secrets.PROD_SSH_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
 
+          echo "${{ secrets.PROD_PORT }}"
+
           ssh-keyscan -p "${{ secrets.PROD_PORT }}" -H "${{ secrets.PROD_HOST }}" >> ~/.ssh/known_hosts
