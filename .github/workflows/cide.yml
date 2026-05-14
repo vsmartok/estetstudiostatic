@@ -32,3 +32,12 @@ jobs:
           echo "${{ secrets.PROD_PORT }}"
 
           ssh-keyscan -p "${{ secrets.PROD_PORT }}" -H "${{ secrets.PROD_HOST }}" >> ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+
+      - name: Test SSH connection
+        shell: bash
+        run: |
+          ssh -p "${{ secrets.PROD_PORT }}" \
+          -o StrictHostKeyChecking=yes \
+          "${{ secrets.PROD_USER }}@${{ secrets.PROD_HOST }}" \
+          "echo 'SSH connection successful'"
