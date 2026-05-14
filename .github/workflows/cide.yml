@@ -41,3 +41,39 @@ jobs:
           -o StrictHostKeyChecking=yes \
           "${{ secrets.PROD_USER }}@${{ secrets.PROD_HOST }}" \
           "echo 'SSH connection successful'"
+
+      - name: Ensure target directory exists
+        shell: bash
+        run: |
+          ssh -p "${{ secrets.PROD_PORT }}" \
+            "${{ secrets.PROD_USER }}@${{ secrets.PROD_HOST }}" \
+            "mkdir -p '${{ secrets.PROD_PATH }}'"
+
+      - name: Deploy via rsync
+        shell: bash
+        run: |
+          rsync -az --delete \
+          --exclude='.git/' \
+          --exclude='.github/' \
+          --exclude='.gitignore' \
+          --exclude='README.md' \
+          --exclude='.DS_Store' \
+          --exclude='node_modules/' \
+          --exclude='npm-debug.log' \
+          --exclude='yarn.lock' \
+          --exclude='package-lock.json' \
+          --exclude='composer.lock' \
+          --exclude='vendor/bin/' \
+          -e "ssh -p ${{ secrets.PROD_PORT }}" \
+          ./ "${{ secrets.PROD_USER }}@${{ secrets.PROD_HOST }}:${{ secrets.PROD_PATH }}/"
+
+      - name: Fix directory and file permissions
+        shell: bash
+        run: |
+          ssh -p "${{ secrets.PROD_PORT }}" \
+            "${{ secrets.PROD_USER }}@${{ secrets.PROD_HOST }}" \
+            "find '${{ secrets.PROD_PATH }}' -type d -exec chmod 755 {} \; && \
+             find '${{ secrets.PROD_PATH }}' -type f -exec chmod 644 {} \;"
+
+      - name: Done
+        run: echo "Deployment completed"
